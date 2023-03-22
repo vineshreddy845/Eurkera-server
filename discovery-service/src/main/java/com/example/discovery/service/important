@@ -1,0 +1,16 @@
+=> you can see in discovery images. that there will be client side discovery and server side discovery.
+=> we implement client side discovery where the client will send request to discovery service or eureka service.
+ inorder to register in discovery service with ip address and portnumber.
+ =>** whenver client register eurkera server. At that time it will fetch memory and place at client cache.
+ => then loadbalancer will send request depdences on robbin algorithm . which send sequemtally.
+
+ important*** that where time we start eureka server.By default it try to call another eurkerserver.every 30 seconds.
+  it think another eurker server running on portnumber:8761. in order to fetch registery.
+
+     eruekaserver ---------->calls----->eurkerserver(run on8761). these because see on pictutes US-West-region picture you will get understand.
+
+  But we i implemtation we have only one eurake server. sothat we right to stop to call anther eurkera server.
+  by running our present  eurkea srever 8761. so that it calls itself.every 30seconds.
+
+ ** client which is registerd with eurkea server sends it heatbeat every 30seconds say i am alive.
+ *if eurkera server does't recive it wait 90 seconds then it will remove from registery.
